@@ -68,11 +68,21 @@ def main():
   while True:
     try:
       line = ser.readline()
-      data = [float(val) for val in line.split(',')]
+      print(line); 
+      split_str = line.split(',')
+      i = 0
+      data = []
+      for val in split_str:
+        i = i + 1
+        if ( val.isdigit() == True):
+          data.append(float(val) )
+
+      print(data[:])
+
       #print data
-      if(len(data) == 4):
-        analogData.add(data)
-        analogPlot.update(analogData)
+      #if(len(data) == 4):
+      #  analogData.add(data)
+      #  analogPlot.update(analogData)
     except KeyboardInterrupt:
       print 'exiting'
       break
